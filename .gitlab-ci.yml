@@ -1,6 +1,17 @@
+stages:
+  - build
+  - test
+
 create_file:
   image: alpine
+  stage: build
   script:
     - echo "Building..."
     - mkdir build
     - touch build/somefile.txt
+
+test_file:
+  image: alpine
+  stage: test
+  script:
+    - test -f build/somefile.txt
