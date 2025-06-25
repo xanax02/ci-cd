@@ -6,6 +6,20 @@ on:
       - main
 
 jobs:
+  lint:
+    name: Lint code
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run lint
+        run: |
+          npm install
+          npm run lint
+
+
   deploy:
     name: Push to EC2
     runs-on: ubuntu-latest
