@@ -22,8 +22,8 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: node-modules
-          path: node-modules/
+          name: node_modules
+          path: node_modules/
 
   build:
     name: Build code
@@ -37,7 +37,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: node-modules  
+          name: node_modules  
 
       - name: Build code
         run: npm run build 
