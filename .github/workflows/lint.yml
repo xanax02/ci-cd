@@ -19,11 +19,11 @@ jobs:
           npm install
           npm run lint
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: node_modules
-          path: node_modules/
+      # - name: Upload artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: node_modules
+      #     path: node_modules/
 
   build:
     name: Build code
@@ -34,11 +34,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: node_modules  
+      # - name: Download artifacts
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: node_modules  
 
       - name: Build code
-        run: npm run build 
+        run: |
+          npm install
+          npm run build 
 
