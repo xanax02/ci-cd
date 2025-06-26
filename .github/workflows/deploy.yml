@@ -1,10 +1,10 @@
 name: Deploy to EC2
 
 on:
-  # workflow_dispatch:
-  push:
-    branches:
-      - main  
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main  
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup SSH connection
         uses: appleboy/ssh-action@v1
         with:
-          host: 13.61.186.163
+          host: 16.170.148.227
           username: ubuntu
           key: ${{ secrets.PRIVATE_SSH_KEY }} 
           port: 22
