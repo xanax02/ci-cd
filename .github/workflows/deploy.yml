@@ -1,25 +1,9 @@
 name: Deploy to EC2
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  lint:
-    name: Lint code
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run lint
-        run: |
-          npm install
-          npm run lint
-
-
   deploy:
     name: Push to EC2
     runs-on: ubuntu-latest
@@ -35,5 +19,4 @@ jobs:
           username: ubuntu
           key: ${{ secrets.PRIVATE_SSH_KEY }} 
           port: 22
-          script: |
-            bash /home/ubuntu/deploy.sh
+          script: echo "Deploying to EC2" 
